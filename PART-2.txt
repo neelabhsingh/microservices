@@ -1,0 +1,65 @@
+Part-2
+----------------------------
+ 
+Steps to use Spring Cloud OpenFeign dependency
+ 
+Step-1 Add Spring Cloud OpenFeign dependency
+ 
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+ 
+ 
+Step-2  :  Add @EnableFeignClients Annotation to the class annotated with @SpringBootApplication annotation.
+ 
+Steps to implement load balancing
+----------------------------------
+Step-1 To enable Spring Cloud Load Balancer,  add spring-cloud-starter-loadbalancer  dependency  
+in POM.XML .
+ 
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+</dependency>
+ 
+Step-2
+ 
+Remove URL attribute from  @FeignClient annotation 
+@FeignClient(name = "currency-exchange")
+ 
+
+Step-3
+ 
+Register multiple instance of the Microservice application to Eureka Service
+ 
+You can register multiple instance of same Microservice by passing configuration argument to 
+virtual machine as given below
+ 
+Run as configuration and pass the VM argument -Dserver.port=8001
+ 
+OR via Command-line Argument
+ 
+Below is an example of how you can start up your Spring Boot application and set the server.port 
+number property via a command-line argument.
+ 
+Move inside spring boot application to be run then run below command 
+-----------------------------------------------------------------------
+mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8001
+ 
+Complete Example
+ 
+D:\StsSabreWs\currency-exchange-microservice>mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=8001
+ 
+ 
+URL and Response Structure for Currency Conversion Service
+ 
+URL
+http://localhost:8100/currency-conversion/from/USD/to/INR/quantity/10
+ 
+<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+</dependency>
+ 
+-Dserver.port=someserverport

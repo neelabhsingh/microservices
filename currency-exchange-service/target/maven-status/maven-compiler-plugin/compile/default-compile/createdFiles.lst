@@ -1,0 +1,4 @@
+com\spring\cloud\CurrencyExchangeServiceApplication.class
+com\spring\cloud\bean\CurrencyExchange.class
+com\spring\cloud\repository\CurrencyExchangeRepository.class
+com\spring\cloud\controller\CurrencyExchangeController.class
